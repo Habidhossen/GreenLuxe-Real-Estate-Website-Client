@@ -1,3 +1,4 @@
+import Banner from "@/components/ui/Banner";
 import FeaturedProperties from "@/components/ui/FeaturedProperties";
 import { auth } from "@/config/firebase.init";
 import MainLayout from "@/layouts/MainLayout";
@@ -10,11 +11,10 @@ import { setLoading, setUser } from "../redux/features/auth/userSlice";
 export default function HomePage() {
   // dispatch
   const dispatch = useDispatch();
-
+  // selector
   const { user } = useSelector((state) => state.user);
-  console.log(user);
 
-  // handle Auth State
+  // handle Firebase Auth State
   useEffect(() => {
     dispatch(setLoading(true));
     onAuthStateChanged(auth, (user) => {
@@ -38,6 +38,7 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className="px-20">
+        <Banner />
         <FeaturedProperties />
       </main>
     </>

@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const FeaturedProperties = () => {
   return (
-    <section className="h-screen pt-20">
+    <section className="h-screen">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-heading text-3xl font-extrabold font-ubuntu">
+          <h1 className="text-heading text-3xl font-bold font-ubuntu">
             Features Properties
           </h1>
           <p className="text-sm text-primary mt-1">
@@ -14,7 +14,7 @@ const FeaturedProperties = () => {
           </p>
         </div>
         <div>
-          <Link href="/">See all properties</Link>
+          <Link href="properties">See all properties</Link>
         </div>
       </div>
     </section>

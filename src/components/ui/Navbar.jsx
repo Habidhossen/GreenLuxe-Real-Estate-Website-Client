@@ -23,14 +23,15 @@ const Navbar = () => {
   // get current User from firebase
   const currentUser = getAuth().currentUser;
   const photoURL = currentUser?.photoURL;
-  console.log(currentUser);
 
   return (
     <nav className="bg-white backdrop-blur-md bg-opacity-60 fixed top-0 left-0 right-0 z-10 text-sm">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
-            <h1 className="text-2xl font-bold text-black">Book Store.</h1>
+            <h1 className="text-2xl font-bold text-heading">
+              <span className="text-primary">Green</span>Luxe.
+            </h1>
           </Link>
           <div className="md:hidden">
             <button
@@ -75,19 +76,19 @@ const Navbar = () => {
           }`}
         >
           <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 text-sm text-heading font-semibold">
-            <li className="text-gray-700 hover:text-[#16a571]">
+            <li className="text-gray-700 hover:text-primary">
               <Link href="properties" className="block">
                 Properties
               </Link>
             </li>
-            <li className="text-gray-700 hover:text-[#16a571]">
+            <li className="text-gray-700 hover:text-primary">
               <Link href="contact" className="block">
                 Contact Us
               </Link>
             </li>
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             {user?.email && (
-              <li className="text-gray-700 hover:text-[#16a571]">
+              <li className="text-gray-700 hover:text-primary">
                 <Link href="profile" className="block">
                   My Profile
                 </Link>
@@ -126,7 +127,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       href="login"
-                      className="block py-3 text-center text-gray-700 hover:text-[#16a571] border rounded-lg md:border-none"
+                      className="block py-3 text-center text-gray-700 hover:text-primary border rounded-lg md:border-none"
                     >
                       Log in
                     </Link>

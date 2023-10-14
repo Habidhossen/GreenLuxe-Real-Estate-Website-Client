@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const FeaturedProperties = () => {
   return (
-    <section className="h-screen">
+    <section className="h-screen pt-20">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-heading text-3xl font-extrabold font-ubuntu">

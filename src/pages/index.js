@@ -1,8 +1,32 @@
 import FeaturedProperties from "@/components/ui/FeaturedProperties";
+import { auth } from "@/config/firebase.init";
 import MainLayout from "@/layouts/MainLayout";
+import { onAuthStateChanged } from "firebase/auth";
 import Head from "next/head";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading, setUser } from "../redux/features/auth/userSlice";
 
 export default function HomePage() {
+  // dispatch
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
+
+  // handle Auth State
+  useEffect(() => {
+    dispatch(setLoading(true));
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser(user.email));
+        dispatch(setLoading(false));
+      } else {
+        dispatch(setLoading(false));
+      }
+    });
+  }, [dispatch]);
+
   return (
     <>
       <Head>

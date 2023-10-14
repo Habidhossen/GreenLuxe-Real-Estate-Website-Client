@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <section className="h-screen mt-16 mb-40">
+    <section className="h-screen px-20 mt-16 mb-40">
       <div class="py-16 mx-auto text-center">
         <div class="max-w-lg mx-auto">
           <h1 class="text-4xl font-bold text-heading lg:text-5xl">

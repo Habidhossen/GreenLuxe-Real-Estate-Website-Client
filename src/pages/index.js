@@ -1,5 +1,9 @@
+import AboutUs from "@/components/ui/AboutUs";
 import Banner from "@/components/ui/Banner";
 import FeaturedProperties from "@/components/ui/FeaturedProperties";
+import InquiryForm from "@/components/ui/InquiryForm";
+import MeetAgents from "@/components/ui/MeetAgents";
+import PropertiesByCities from "@/components/ui/PropertiesByCities";
 import Testimonials from "@/components/ui/Testimonials";
 import { auth } from "@/config/firebase.init";
 import MainLayout from "@/layouts/MainLayout";
@@ -38,10 +42,14 @@ export default function HomePage() {
         <meta name="description" content="This is Real estate Website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="px-20">
+      <main>
         <Banner />
         <FeaturedProperties />
+        <PropertiesByCities />
         <Testimonials />
+        <AboutUs />
+        <MeetAgents />
+        <InquiryForm />
       </main>
     </>
   );

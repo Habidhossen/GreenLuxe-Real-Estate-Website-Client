@@ -1,5 +1,6 @@
 import Banner from "@/components/ui/Banner";
 import FeaturedProperties from "@/components/ui/FeaturedProperties";
+import Testimonials from "@/components/ui/Testimonials";
 import { auth } from "@/config/firebase.init";
 import MainLayout from "@/layouts/MainLayout";
 import { onAuthStateChanged } from "firebase/auth";
@@ -40,6 +41,7 @@ export default function HomePage() {
       <main className="px-20">
         <Banner />
         <FeaturedProperties />
+        <Testimonials />
       </main>
     </>
   );

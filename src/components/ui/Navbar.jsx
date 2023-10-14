@@ -1,18 +1,36 @@
+import { auth } from "@/config/firebase.init";
+import { setUser } from "@/redux/features/auth/userSlice";
+import { getAuth, signOut } from "firebase/auth";
 import Link from "next/link";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   // declare state for handling navigation bar
   const [state, setState] = useState(false);
+
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  // handle SignOut button
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      dispatch(setUser(null));
+    });
+  };
+
+  // get current User from firebase
+  const currentUser = getAuth().currentUser;
+  const photoURL = currentUser?.photoURL;
+  console.log(currentUser);
 
   return (
     <nav className="bg-white backdrop-blur-md bg-opacity-60 fixed top-0 left-0 right-0 z-10 text-sm">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
-            <h1 className="text-2xl font-bold text-heading">
-              <span className="text-primary">Green</span>Luxe.
-            </h1>
+            <h1 className="text-2xl font-bold text-black">Book Store.</h1>
           </Link>
           <div className="md:hidden">
             <button
@@ -52,26 +70,78 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 text-center ${
+          className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
             state ? "block" : "hidden"
           }`}
         >
-          <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 text-sm font-semibold">
-            <li className="">
+          <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 text-sm text-heading font-semibold">
+            <li className="text-gray-700 hover:text-[#16a571]">
               <Link href="properties" className="block">
-                Property
+                Properties
               </Link>
             </li>
-            <li className="">
-              <Link href="login" className="block">
-                Login
+            <li className="text-gray-700 hover:text-[#16a571]">
+              <Link href="contact" className="block">
+                Contact Us
               </Link>
             </li>
-            <li className="">
-              <Link href="signup" className="block">
-                Register
-              </Link>
-            </li>
+            <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
+            {user?.email && (
+              <li className="text-gray-700 hover:text-[#16a571]">
+                <Link href="profile" className="block">
+                  My Profile
+                </Link>
+              </li>
+            )}
+            <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
+              {user?.email ? (
+                <div>
+                  <div className="flex items-center relative group gap-x-3">
+                    <img
+                      src={
+                        photoURL ||
+                        "https://media.istockphoto.com/id/1008484130/vector/creative-vector-illustration-of-default-avatar-profile-placeholder-isolated-on-background.jpg?s=612x612&w=0&k=20&c=H57e2HUi6qDyPoBl8Om1dlX22--BqgGp64cFKsywWZ0="
+                      }
+                      className="w-10 h-10 rounded-full"
+                      alt="User Profile"
+                    />
+                    <div>
+                      <span className="block text-gray-700 text-sm font-medium">
+                        {currentUser?.displayName}
+                      </span>
+                      <span className="block text-gray-700 text-xs">
+                        {currentUser?.email}
+                      </span>
+                    </div>
+                    <button
+                      onClick={handleSignOut}
+                      className="px-2.5 py-2.5 text-red-600 duration-150 bg-red-50 rounded-lg hover:bg-red-100 active:bg-red-200"
+                    >
+                      Sign out
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <li>
+                    <Link
+                      href="login"
+                      className="block py-3 text-center text-gray-700 hover:text-[#16a571] border rounded-lg md:border-none"
+                    >
+                      Log in
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="signup"
+                      className="block py-3 px-4 font-medium text-center text-white bg-[#16a571] hover:bg-green-600 active:bg-bg-green-700 active:shadow-none rounded-lg shadow md:inline"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+              )}
+            </div>
           </ul>
         </div>
       </div>

@@ -3,18 +3,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  //   apiKey: process.env.apiKey,
-  //   authDomain: process.env.authDomain,
-  //   projectId: process.env.projectId,
-  //   storageBucket: process.env.storageBucket,
-  //   messagingSenderId: process.env.messagingSenderId,
-  //   appId: process.env.appId,
-  apiKey: "AIzaSyA84LcUHO2nhL2070DQnqqxvjZD0MCCC2g",
-  authDomain: "greenluxe-real-estate-website.firebaseapp.com",
-  projectId: "greenluxe-real-estate-website",
-  storageBucket: "greenluxe-real-estate-website.appspot.com",
-  messagingSenderId: "408134529080",
-  appId: "1:408134529080:web:f64f54bab3d5a2407c76cd",
+  apiKey: process.env.NEXT_PUBLIC_apiKey,
+  authDomain: process.env.NEXT_PUBLIC_authDomain,
+  projectId: process.env.NEXT_PUBLIC_projectId,
+  storageBucket: process.env.NEXT_PUBLIC_storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
+  appId: process.env.appId,
 };
 
 // Initialize Firebase

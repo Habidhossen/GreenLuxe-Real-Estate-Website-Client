@@ -44,7 +44,7 @@ export default function HomePage() {
   );
 }
 
-// For Layout
+// Main layout
 HomePage.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };

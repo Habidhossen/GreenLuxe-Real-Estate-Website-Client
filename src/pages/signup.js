@@ -1,7 +1,9 @@
+import MainLayout from "@/layouts/MainLayout";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { createUser } from "../redux/features/auth/userSlice";
 
 const SignupPage = () => {
   // Redux dispatch and selector
@@ -20,17 +22,16 @@ const SignupPage = () => {
     reset,
   } = useForm();
 
-  // Define the onSubmit function with the correct type
+  // Define the onSubmit function
   const onSubmit = (data) => {
     // create account by Firebase and Redux
-    // dispatch(
-    //   createUser({
-    //     name: data.name,
-    //     email: data.email,
-    //     password: data.password,
-    //   })
-    // );
-    console.log(data);
+    dispatch(
+      createUser({
+        name: data?.name,
+        email: data?.email,
+        password: data?.password,
+      })
+    );
     reset();
   };
 
@@ -109,7 +110,7 @@ const SignupPage = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_17_40)">
+            <g clipPath="url(#clip0_17_40)">
               <path
                 d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z"
                 fill="#4285F4"
@@ -150,3 +151,7 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
+
+SignupPage.getLayout = function getLayout(page) {
+  return <MainLayout>{page}</MainLayout>;
+};

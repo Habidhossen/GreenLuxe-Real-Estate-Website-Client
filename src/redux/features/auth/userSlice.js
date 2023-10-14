@@ -1,4 +1,3 @@
-import { auth } from "@/config/firebase.init";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
   GoogleAuthProvider,
@@ -7,8 +6,9 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
+import { auth } from "../../../config/firebase.init";
 
-// Declare State Interface
+// create Initial State
 const initialState = {
   user: {
     email: null,
@@ -18,31 +18,36 @@ const initialState = {
   error: null,
 };
 
-// Create a new User by Firebase authentication
-const createUser = createAsyncThunk(
+// create a new User by Firebase authentication
+export const createUser = createAsyncThunk(
   "user/createUser",
   async ({ name, email, password }) => {
+    // create User
     const data = await createUserWithEmailAndPassword(auth, email, password);
-    await updateProfile(data.user, { displayName: name });
-    return data.user.email;
+    // Set the user's display name (username) in Firebase
+    await updateProfile(data?.user, { displayName: name });
+    return data?.user?.email;
   }
 );
 
 // Login a User by Firebase authentication
-const loginUser = createAsyncThunk(
+export const loginUser = createAsyncThunk(
   "user/loginUser",
   async ({ email, password }) => {
     const data = await signInWithEmailAndPassword(auth, email, password);
-    return data.user.email;
+    return data?.user?.email;
   }
 );
 
 // Login with Google Account
-const loginWithGoogle = createAsyncThunk("user/loginWithGoogle", async () => {
-  const provider = new GoogleAuthProvider();
-  const data = await signInWithPopup(auth, provider);
-  return data.user?.email;
-});
+export const loginWithGoogle = createAsyncThunk(
+  "user/loginWithGoogle",
+  async () => {
+    const provider = new GoogleAuthProvider();
+    const data = await signInWithPopup(auth, provider);
+    return data.user?.email;
+  }
+);
 
 // Create Slice
 const userSlice = createSlice({
@@ -58,7 +63,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // For create user
+      // for create user
       .addCase(createUser.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
@@ -74,7 +79,7 @@ const userSlice = createSlice({
         state.isError = true;
         state.error = action.error.message;
       })
-      // For login user
+      // for login user
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
@@ -90,7 +95,7 @@ const userSlice = createSlice({
         state.isError = true;
         state.error = action.error.message;
       })
-      // For Google login
+      // for google login
       .addCase(loginWithGoogle.pending, (state) => {
         state.isLoading = true;
         state.isError = false;

@@ -1,3 +1,4 @@
+import Loading from "@/pages/loading";
 import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
 import Link from "next/link";
 import PropertyCard from "./PropertyCard";
@@ -8,6 +9,11 @@ const FeaturedProperties = () => {
     error,
     isLoading,
   } = useGetPropertiesQuery(undefined);
+
+  // is loading
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section className="h-screen px-20">

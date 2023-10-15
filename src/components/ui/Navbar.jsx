@@ -77,19 +77,19 @@ const Navbar = () => {
         >
           <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 text-sm text-heading font-semibold">
             <li className="text-gray-700 hover:text-primary">
-              <Link href="properties" className="block">
-                Properties
+              <Link href="/properties" className="block">
+                Listing
               </Link>
             </li>
             <li className="text-gray-700 hover:text-primary">
-              <Link href="contact" className="block">
+              <Link href="/contact" className="block">
                 Contact Us
               </Link>
             </li>
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             {user?.email && (
               <li className="text-gray-700 hover:text-primary">
-                <Link href="profile" className="block">
+                <Link href="/profile" className="block">
                   My Profile
                 </Link>
               </li>
@@ -126,7 +126,7 @@ const Navbar = () => {
                 <>
                   <li>
                     <Link
-                      href="login"
+                      href="/login"
                       className="block py-3 text-center text-gray-700 hover:text-primary border rounded-lg md:border-none"
                     >
                       Log in
@@ -134,7 +134,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="signup"
+                      href="/signup"
                       className="block py-3 px-4 font-medium text-center text-white bg-[#16a571] hover:bg-green-600 active:bg-bg-green-700 active:shadow-none rounded-lg shadow md:inline"
                     >
                       Sign Up

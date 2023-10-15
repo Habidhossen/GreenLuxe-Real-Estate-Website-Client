@@ -12,6 +12,7 @@ import { auth } from "../../../config/firebase.init";
 const initialState = {
   user: {
     email: null,
+    role: null,
   },
   isLoading: false,
   isError: false,

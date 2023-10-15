@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 const Banner = () => {
   return (
-    <section className="h-screen px-20 mt-16 mb-40">
+    <section className="px-20 mt-16 mb-40">
       <div class="py-16 mx-auto text-center">
         <div class="max-w-lg mx-auto">
           <h1 class="text-4xl font-bold text-heading lg:text-5xl">
@@ -28,9 +30,12 @@ const Banner = () => {
         </form>
 
         <div class="flex justify-center mt-10">
-          <img
-            class="object-cover w-full h-96 rounded-xl lg:w-4/5"
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
+          <Image
+            class="object-cover w-full h-1/2 rounded-xl lg:w-4/5"
+            src="https://i.ibb.co/StLFT1Z/banner.jpg"
+            alt=""
+            width="1000"
+            height="1000"
           />
         </div>
       </div>

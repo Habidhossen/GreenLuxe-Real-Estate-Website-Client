@@ -1,5 +1,9 @@
+import PropertyCard from "@/components/ui/PropertyCard";
 import MainLayout from "@/layouts/MainLayout";
-import { useGetOnePropertyQuery } from "@/redux/features/properties/propertyApi";
+import {
+  useGetOnePropertyQuery,
+  useGetPropertiesQuery,
+} from "@/redux/features/properties/propertyApi";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Loading from "../loading";
@@ -8,6 +12,8 @@ const PropertyDetailPage = () => {
   // get property Id
   const router = useRouter();
   const { propertyId } = router.query;
+
+  const { data: propertyData, error } = useGetPropertiesQuery(undefined);
 
   // fetching data by RTK Query
   const { data, isLoading, isError } = useGetOnePropertyQuery(propertyId);
@@ -41,8 +47,6 @@ const PropertyDetailPage = () => {
     tags,
   } = data?.data;
 
-  console.log(images);
-
   // Assuming listingDate is in ISO 8601 format
   const date = new Date(listingDate);
 
@@ -53,6 +57,7 @@ const PropertyDetailPage = () => {
 
   return (
     <section className="py-28">
+      {/* property heading */}
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-20 mb-8">
         <div>
           <span className="text-sm bg-secondary text-white rounded-md px-2 py-1">
@@ -97,6 +102,120 @@ const PropertyDetailPage = () => {
                 height="1000"
               />
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* property details */}
+      <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 px-20 mt-12">
+        <div className="col-span-2">
+          {/* overview */}
+          <div className="p-6 shadow-lg rounded-lg mb-8">
+            <h1 className="text-lg font-bold text-heading mb-2">Overview</h1>
+            <hr />
+            <p className="text-sm text-body mt-4">{description}</p>
+          </div>
+
+          {/* property description */}
+          <div className="p-6 shadow-lg rounded-lg mb-8">
+            <h1 className="text-lg font-bold text-heading mb-2">
+              Property Description
+            </h1>
+            <hr />
+            <p className="text-sm text-body mt-4">{description}</p>
+          </div>
+
+          {/* property details */}
+          <div className="p-6 shadow-lg rounded-lg mb-8">
+            <h1 className="text-lg font-bold text-heading mb-2">
+              Property Details
+            </h1>
+            <hr />
+            <p className="text-sm text-body mt-4">{description}</p>
+          </div>
+
+          {/* Features & Amenities */}
+          <div className="p-6 shadow-lg rounded-lg mb-8">
+            <h1 className="text-lg font-bold text-heading mb-2">
+              Features & Amenities
+            </h1>
+            <hr />
+            <p className="text-sm text-body mt-4">
+              {amenities.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </p>
+          </div>
+        </div>
+
+        {/* schedule form */}
+        <div class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-lg rounded-xl  lg:max-w-xl">
+          <h1 class="text-xl font-bold text-primary text-center">
+            Schedule a Tour
+          </h1>
+          <form class="mt-6">
+            <div class="flex-1">
+              <label class="block mb-2 text-sm text-gray-600 ">Your Name</label>
+              <input
+                type="text"
+                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
+            </div>
+
+            <div class="flex-1 mt-6">
+              <label class="block mb-2 text-sm text-gray-600 ">
+                Email address
+              </label>
+              <input
+                type="email"
+                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
+            </div>
+
+            <div class="flex-1 mt-6">
+              <label class="block mb-2 text-sm text-gray-600 ">
+                Phone Number
+              </label>
+              <input
+                type="text"
+                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
+            </div>
+
+            <div class="flex-1 mt-6">
+              <label class="block mb-2 text-sm text-gray-600 ">
+                Date and Time
+              </label>
+              <input
+                type="datetime-local"
+                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              />
+            </div>
+
+            <div class="w-full mt-6">
+              <label class="block mb-2 text-sm text-gray-600 ">Message</label>
+              <textarea
+                class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                placeholder="Message"
+              ></textarea>
+            </div>
+
+            <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50">
+              Submit Tour Request
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Related Properties */}
+      {/* cards here */}
+      <div className="px-20">
+        <h1 className="text-2xl font-bold text-heading mb-6 mt-12">
+          Related properties
+        </h1>
+        <div className="grid grid-cols-4">
+          {propertyData?.data?.map((property) => (
+            <PropertyCard key={property._id} property={property} />
           ))}
         </div>
       </div>

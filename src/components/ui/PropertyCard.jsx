@@ -29,7 +29,7 @@ const PropertyCard = ({ property }) => {
       <h1>{title}</h1>
       <h1>{propertyType}</h1>
 
-      <Link href={`properties/${_id}`}>Click</Link>
+      <Link href={`/properties/${_id}`}>Click</Link>
     </div>
   );
 };

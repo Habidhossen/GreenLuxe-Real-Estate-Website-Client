@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const AboutUs = () => {
   const features = [
     {
@@ -75,7 +77,12 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="mt-12 lg:mt-0">
-          <img src="https://homez-appdir.vercel.app/_next/image?url=%2Fimages%2Fabout%2Fabout-2.png&w=640&q=75" />
+          <Image
+            src="https://i.ibb.co/jzXd4Pj/home-page-1.webp"
+            alt=""
+            width="500"
+            height="500"
+          />
         </div>
       </div>
     </section>

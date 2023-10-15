@@ -1,40 +1,19 @@
 const MeetAgents = () => {
   const team = [
     {
-      avatar:
-        "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
       name: "Martiana dialan",
-      title: "Product designer",
+      email: "martiana@example.com",
+      phone: "0123456789",
     },
     {
-      avatar:
-        "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80",
       name: "Micheal colorand",
-      title: "Software engineer",
+      email: "micheal@exaple.com",
+      phone: "0123456789",
     },
     {
-      avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       name: "Brown Luis",
-      title: "Full stack engineer",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      name: "Lysa sandiago",
-      title: "Head of designers",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      name: "Daniel martin",
-      title: "Product designer",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      name: "Vicky tanson",
-      title: "Product manager",
+      email: "brown@example.com",
+      phone: "0123456789",
     },
   ];
 
@@ -46,7 +25,7 @@ const MeetAgents = () => {
             Meet The <span class="text-primary ">Agents</span>
           </h1>
 
-          <div class="flex justify-center mx-auto mt-6">
+          <div class="flex justify-center mx-auto mt-4">
             <span class="inline-block w-40 h-1 bg-primary rounded-full"></span>
             <span class="inline-block w-3 h-1 mx-1 bg-primary rounded-full"></span>
             <span class="inline-block w-1 h-1 bg-primary rounded-full"></span>
@@ -54,26 +33,20 @@ const MeetAgents = () => {
 
           <p className="text-gray-600 mt-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown.
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown.
           </p>
         </div>
         <div className="mt-12">
-          <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+          <ul className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {team.map((item, idx) => (
               <li key={idx}>
-                <div className="w-full h-60 sm:h-52 md:h-56">
-                  <img
-                    src={item.avatar}
-                    className="w-full h-full object-cover object-center shadow-md rounded-xl"
-                    alt=""
-                  />
-                </div>
-                <div className="mt-4">
-                  <h4 className="text-lg text-gray-700 font-semibold">
+                <div className="mt-4 text-center space-y-1 bg-gray-100 p-6 rounded-lg">
+                  <h4 className="text-lg text-heading font-semibold">
                     {item.name}
                   </h4>
-                  <p className="text-indigo-600">{item.title}</p>
+                  <p className="text-primary text-sm">{item.email}</p>
+                  <p className="text-body text-sm">{item.phone}</p>
                 </div>
               </li>
             ))}

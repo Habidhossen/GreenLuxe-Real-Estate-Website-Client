@@ -1,8 +1,10 @@
+import DashboardPage from ".";
+
 const ProfilePage = () => {
   return (
-    <div>
-      <h1>Welcome to profile</h1>
-    </div>
+    <DashboardPage>
+      <h1>Profile</h1>
+    </DashboardPage>
   );
 };
 

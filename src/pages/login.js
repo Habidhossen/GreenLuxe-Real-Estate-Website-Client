@@ -17,7 +17,6 @@ const LoginPage = () => {
 
   // get current user info from firebase
   const currentUser = getAuth().currentUser;
-  console.log(currentUser);
 
   // Create the form
   const {
@@ -39,10 +38,10 @@ const LoginPage = () => {
   // if user successfully login
   useEffect(() => {
     if (user?.email) {
-      router.push("/");
+      router.push("/dashboard");
       // navigate("/");
     }
-  }, [user?.email]);
+  }, [user?.email, router]);
 
   return (
     <section className="w-full h-screen flex flex-col items-center justify-center px-4">

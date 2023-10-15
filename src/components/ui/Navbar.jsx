@@ -1,6 +1,7 @@
 import { auth } from "@/config/firebase.init";
 import { setUser } from "@/redux/features/auth/userSlice";
 import { getAuth, signOut } from "firebase/auth";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -98,13 +99,15 @@ const Navbar = () => {
               {user?.email ? (
                 <div>
                   <div className="flex items-center relative group gap-x-3">
-                    <img
+                    <Image
                       src={
                         photoURL ||
-                        "https://media.istockphoto.com/id/1008484130/vector/creative-vector-illustration-of-default-avatar-profile-placeholder-isolated-on-background.jpg?s=612x612&w=0&k=20&c=H57e2HUi6qDyPoBl8Om1dlX22--BqgGp64cFKsywWZ0="
+                        "https://i.ibb.co/Y3cQrGL/dummy-profile-image.jpg"
                       }
                       className="w-10 h-10 rounded-full"
                       alt="User Profile"
+                      width="100"
+                      height="100"
                     />
                     <div>
                       <span className="block text-gray-700 text-sm font-medium">

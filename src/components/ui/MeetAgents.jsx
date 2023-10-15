@@ -39,12 +39,12 @@ const MeetAgents = () => {
   ];
 
   return (
-    <section className="py-14">
+    <section className="px-4 md:px-12 lg:px-20 py-14">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="max-w-xl mx-auto sm:text-center">
-          <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-            Meet the Agents
-          </h3>
+          <h1 class="text-2xl font-semibold text-center  capitalize lg:text-3xl ">
+            Meet The <span class="text-primary ">Agents</span>
+          </h1>
 
           <div class="flex justify-center mx-auto mt-6">
             <span class="inline-block w-40 h-1 bg-primary rounded-full"></span>

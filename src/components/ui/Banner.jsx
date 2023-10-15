@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <section className="px-20 mt-16 mb-40">
+    <section className="px-4 md:px-12 lg:px-20 mt-16 mb-10">
       <div class="py-16 mx-auto text-center">
         <div class="max-w-lg mx-auto">
           <h1 class="text-4xl font-bold text-heading lg:text-5xl">

@@ -43,7 +43,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="h-screen py-20">
+    <section className="px-4 md:px-12 lg:px-20 py-12">
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-16 justify-between md:px-8 lg:flex">
         <div>
           <div className="max-w-xl space-y-3">

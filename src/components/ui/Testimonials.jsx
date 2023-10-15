@@ -1,6 +1,6 @@
 const Testimonials = () => {
   return (
-    <section class="h-screen px-20">
+    <section class="px-4 md:px-12 lg:px-20 py-16">
       <div class="container px-6 py-10 mx-auto">
         <h1 class="text-2xl font-semibold text-center  capitalize lg:text-3xl ">
           What our <span class="text-primary ">clients</span> say

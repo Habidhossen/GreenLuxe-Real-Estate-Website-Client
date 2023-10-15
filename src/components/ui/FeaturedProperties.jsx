@@ -16,10 +16,10 @@ const FeaturedProperties = () => {
   }
 
   return (
-    <section className="h-screen px-20">
+    <section className="px-4 md:px-12 lg:px-20">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-heading text-3xl font-bold font-ubuntu">
+          <h1 className="text-heading text-xl md:text-2xl lg:text-3xl font-bold font-ubuntu">
             Features Properties
           </h1>
 
@@ -29,7 +29,12 @@ const FeaturedProperties = () => {
           </p>
         </div>
         <div>
-          <Link href="properties">See all properties</Link>
+          <Link
+            href="properties"
+            className="text-sm font-semibold hover:text-primary duration-300 ease-in-out"
+          >
+            See all properties
+          </Link>
         </div>
       </div>
 

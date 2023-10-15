@@ -24,8 +24,7 @@ const FeaturedProperties = () => {
           </h1>
 
           <p className="text-sm text-body mt-1">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem,
-            recusandae!
+            Your journey in the world of real estate begins here.
           </p>
         </div>
         <div>

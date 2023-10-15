@@ -6,16 +6,15 @@ const Testimonials = () => {
           What our <span class="text-primary ">clients</span> say
         </h1>
 
-        <div class="flex justify-center mx-auto mt-6">
+        <div class="flex justify-center mx-auto my-4">
           <span class="inline-block w-40 h-1 bg-primary rounded-full"></span>
           <span class="inline-block w-3 h-1 mx-1 bg-primary rounded-full"></span>
           <span class="inline-block w-1 h-1 bg-primary rounded-full"></span>
         </div>
 
-        <p class="max-w-2xl mx-auto mt-6 text-center text-body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt
-          ex placeat modi magni quia error alias, adipisci rem similique, at
-          omnis eligendi optio eos harum.
+        <p class="max-w-2xl mx-auto text-center text-body">
+          Here&apos;s what one of our satisfied clients has to say about their
+          journey with us
         </p>
 
         <div class="grid grid-cols-1 gap-8 mx-auto mt-8 lg:grid-cols-2 xl:mt-10 max-w-7xl">

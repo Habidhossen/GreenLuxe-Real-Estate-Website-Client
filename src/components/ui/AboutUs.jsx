@@ -19,8 +19,28 @@ const AboutUs = () => {
           />
         </svg>
       ),
-      title: "Analytics",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius, enim ex faucibus purus.",
+      title: "Personalized Service",
+      desc: "We don't believe in a one-size-fits-all approach. We take the time to understand your unique requirements and preferences to deliver a tailored real estate solution.",
+    },
+    {
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+      ),
+      title: "Expertise",
+      desc: "Our experienced agents are well-versed in the local market trends, neighborhoods, and property values. We're here to provide you with valuable insights to make informed decisions.",
     },
     {
       icon: (
@@ -39,8 +59,8 @@ const AboutUs = () => {
           />
         </svg>
       ),
-      title: "Datacenter security",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius, enim ex faucibus purus.",
+      title: "Seamless Transactions",
+      desc: "We make the buying and selling process as smooth as possible. From negotiations to paperwork, we've got you covered.",
     },
   ];
 
@@ -49,16 +69,18 @@ const AboutUs = () => {
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-16 justify-between md:px-8 lg:flex">
         <div>
           <div className="max-w-xl space-y-3">
-            <h3 className="text-primary font-semibold">About Us</h3>
+            <h3 className="text-primary font-semibold text-sm">About Us</h3>
             <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
               With Us Help You Find Your Dream Home{" "}
             </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              congue, nisl eget molestie varius, enim ex faucibus purus
+            <p className="text-body text-sm">
+              Welcome to the world of real estate possibilities. Our website is
+              your one-stop resource for property listings, expert advice, and
+              community insights. Whether you&apos;sre buying, selling, or
+              investing, we&apos;ve got you covered every step of the way.
             </p>
           </div>
-          <div className="mt-12 max-w-lg lg:max-w-none">
+          <div className="mt-8 max-w-lg lg:max-w-none">
             <ul className="space-y-8">
               {features.map((item, idx) => (
                 <li key={idx} className="flex gap-x-4">
@@ -66,17 +88,17 @@ const AboutUs = () => {
                     {item.icon}
                   </div>
                   <div>
-                    <h4 className="text-lg text-gray-800 font-semibold">
+                    <h4 className="text-base text-heading font-semibold">
                       {item.title}
                     </h4>
-                    <p className="mt-3">{item.desc}</p>
+                    <p className="mt-1 text-sm">{item.desc}</p>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="mt-12 lg:mt-0">
+        <div className="mt-12">
           <Image
             src="https://i.ibb.co/jzXd4Pj/home-page-1.webp"
             alt=""

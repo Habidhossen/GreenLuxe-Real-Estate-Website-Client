@@ -25,16 +25,15 @@ const MeetAgents = () => {
             Meet The <span class="text-primary ">Agents</span>
           </h1>
 
-          <div class="flex justify-center mx-auto mt-4">
+          <div class="flex justify-center mx-auto my-4">
             <span class="inline-block w-40 h-1 bg-primary rounded-full"></span>
             <span class="inline-block w-3 h-1 mx-1 bg-primary rounded-full"></span>
             <span class="inline-block w-1 h-1 bg-primary rounded-full"></span>
           </div>
 
-          <p className="text-gray-600 mt-3">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard dummy
-            text ever since the 1500s, when an unknown.
+          <p className="text-gray-600">
+            Our dedicated team of experienced agents is here to guide you on
+            your real estate journey.
           </p>
         </div>
         <div className="mt-12">

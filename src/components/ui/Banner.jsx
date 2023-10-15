@@ -4,13 +4,14 @@ const Banner = () => {
   return (
     <section className="px-4 md:px-12 lg:px-20 mt-16 mb-10">
       <div class="py-16 mx-auto text-center">
-        <div class="max-w-lg mx-auto">
-          <h1 class="text-4xl font-bold text-heading lg:text-5xl">
-            We will find a perfect home for you
+        <div class="mx-auto">
+          <h1 class="font-roboto text-4xl font-bold text-heading lg:text-6xl">
+            We will find a <span className="text-secondary">perfect</span> home{" "}
+            <br /> for you.
           </h1>
-          <p class="mt-6 text-gray-500">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
-            similique obcaecati illum mollitia.
+          <p class="mt-6 mb-8 text-gray-500">
+            Welcome to GreenLuxe - A Real Estate Website, Your Gateway to Real
+            Estate Excellence
           </p>
         </div>
 

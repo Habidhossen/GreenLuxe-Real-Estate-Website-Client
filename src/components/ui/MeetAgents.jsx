@@ -45,6 +45,13 @@ const MeetAgents = () => {
           <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
             Meet the Agents
           </h3>
+
+          <div class="flex justify-center mx-auto mt-6">
+            <span class="inline-block w-40 h-1 bg-primary rounded-full"></span>
+            <span class="inline-block w-3 h-1 mx-1 bg-primary rounded-full"></span>
+            <span class="inline-block w-1 h-1 bg-primary rounded-full"></span>
+          </div>
+
           <p className="text-gray-600 mt-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

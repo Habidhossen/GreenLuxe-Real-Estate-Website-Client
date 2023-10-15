@@ -23,7 +23,7 @@ const FeaturedProperties = () => {
             Features Properties
           </h1>
 
-          <p className="text-sm text-primary mt-1">
+          <p className="text-sm text-body mt-1">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem,
             recusandae!
           </p>
@@ -34,7 +34,7 @@ const FeaturedProperties = () => {
       </div>
 
       {/* cards here */}
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {propertyData?.data?.map((property) => (
           <PropertyCard key={property._id} property={property} />
         ))}

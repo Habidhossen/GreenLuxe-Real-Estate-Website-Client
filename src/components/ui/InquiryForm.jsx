@@ -11,21 +11,20 @@ const InquiryForm = () => {
           <div class="flex-1 lg:flex lg:items-center lg:-mx-6">
             <div class="text-white lg:w-1/2 lg:mx-6">
               <h1 class="text-2xl font-semibold capitalize lg:text-3xl">
-                Real Estate Inquiry Form
+                Real Estate Feedback Form
               </h1>
 
               <p class="max-w-xl mt-6">
-                We provide the most suitable and quality real estate.
+                We&apos;re here to assist you with all your real estate needs.
+                Whether you&apos;re looking to buy, sell, or have any inquiries
+                related to properties or our services, our team is ready to
+                provide you with expert guidance.
               </p>
 
-              <button class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
-                get in touch
-              </button>
-
               <div class="mt-6 md:mt-8">
-                <h3 class="text-gray-300 ">Follow us</h3>
+                <h3 class="text-gray-300 ">Follow us: </h3>
 
-                <div class="flex mt-4 -mx-1.5 ">
+                <div class="flex mt-4 -mx-4">
                   <a
                     class="mx-1.5 text-white transition-colors duration-300 transform hover:text-primary"
                     href="#"
@@ -102,11 +101,11 @@ const InquiryForm = () => {
               </div>
             </div>
 
-            <div class="mt-8 lg:w-1/2 lg:mx-6">
+            <div class="">
               <div class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl  lg:max-w-xl">
-                <h1 class="text-xl font-medium text-gray-700 ">Contact us</h1>
+                <h1 class="text-xl font-bold text-heading">Contact us</h1>
 
-                <p class="mt-2 text-gray-500 dark:text-gray-400">
+                <p class="mt-1 text-body text-sm">
                   Ask us everything and we would love to hear from you
                 </p>
 
@@ -117,7 +116,6 @@ const InquiryForm = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="John Doe"
                       class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                     />
                   </div>
@@ -128,7 +126,6 @@ const InquiryForm = () => {
                     </label>
                     <input
                       type="email"
-                      placeholder="johndoe@example.com"
                       class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                     />
                   </div>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer class="bg-white ">
@@ -26,49 +28,49 @@ const Footer = () => {
             <p class="font-semibold text-gray-800 ">Quick Link</p>
 
             <div class="flex flex-col items-start mt-5 space-y-2">
-              <a
-                href="#"
-                class="text-gray-600 transition-colors duration-300   hover:underline hover:text-blue-500"
+              <Link
+                href=""
+                class="text-gray-600 transition-colors duration-300 text-sm hover:underline hover:text-primary"
               >
                 Home
-              </a>
-              <a
-                href="#"
-                class="text-gray-600 transition-colors duration-300   hover:underline hover:text-blue-500"
+              </Link>
+              <Link
+                href=""
+                class="text-gray-600 transition-colors duration-300 text-sm hover:underline hover:text-primary"
               >
                 Who We Are
-              </a>
-              <a
-                href="#"
-                class="text-gray-600 transition-colors duration-300   hover:underline hover:text-blue-500"
+              </Link>
+              <Link
+                href=""
+                class="text-gray-600 transition-colors duration-300 text-sm hover:underline hover:text-primary"
               >
-                Our Philosophy
-              </a>
+                Privacy Policy
+              </Link>
             </div>
           </div>
 
           <div>
-            <p class="font-semibold text-gray-800 ">Industries</p>
+            <p class="font-semibold text-gray-800 ">Our Company</p>
 
             <div class="flex flex-col items-start mt-5 space-y-2">
-              <a
-                href="#"
-                class="text-gray-600 transition-colors duration-300   hover:underline hover:text-blue-500"
+              <Link
+                href=""
+                class="text-gray-600 transition-colors duration-300 text-sm hover:underline hover:text-primary"
               >
-                Retail & E-Commerce
-              </a>
-              <a
-                href="#"
-                class="text-gray-600 transition-colors duration-300   hover:underline hover:text-blue-500"
+                Property For Sale
+              </Link>
+              <Link
+                href=""
+                class="text-gray-600 transition-colors duration-300 text-sm hover:underline hover:text-primary"
               >
-                Information Technology
-              </a>
-              <a
-                href="#"
-                class="text-gray-600 transition-colors duration-300   hover:underline hover:text-blue-500"
+                Out Agents
+              </Link>
+              <Link
+                href=""
+                class="text-gray-600 transition-colors duration-300 text-sm hover:underline hover:text-primary"
               >
                 Finance & Insurance
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -81,8 +83,8 @@ const Footer = () => {
           </h1>
           <div class="flex -mx-2">
             <a
-              href="#"
-              class="mx-2 text-gray-600 transition-colors duration-300  hover:text-blue-500 "
+              href=""
+              class="mx-2 text-gray-600 transition-colors duration-300  hover:text-primary "
               aria-label="Reddit"
             >
               <svg
@@ -96,8 +98,8 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
-              class="mx-2 text-gray-600 transition-colors duration-300  hover:text-blue-500 "
+              href=""
+              class="mx-2 text-gray-600 transition-colors duration-300  hover:text-primary "
               aria-label="Facebook"
             >
               <svg
@@ -111,8 +113,8 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
-              class="mx-2 text-gray-600 transition-colors duration-300  hover:text-blue-500 "
+              href=""
+              class="mx-2 text-gray-600 transition-colors duration-300  hover:text-primary "
               aria-label="Github"
             >
               <svg

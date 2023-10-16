@@ -20,10 +20,11 @@ const Testimonials = () => {
         <div class="grid grid-cols-1 gap-8 mx-auto mt-8 lg:grid-cols-2 xl:mt-10 max-w-7xl">
           <div class="p-6 bg-gray-100 rounded-lg  md:p-8">
             <p class="leading-loose text-body">
-              “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
-              quibusdam ducimus libero ad tempora doloribus expedita laborum
-              saepe voluptas perferendis delectus assumenda rerum, culpa aperiam
-              dolorum, obcaecati corrupti aspernatur a.”.
+              &quot;I couldn&apos;t have asked for a better experience with
+              GreenLuxe. Their team is exceptional in every way. They helped me
+              find the perfect home that exceeded my expectations. The whole
+              process was stress-free and enjoyable. I highly recommend their
+              services to anyone looking to buy or sell property.&quot;
             </p>
 
             <div class="flex items-center mt-6">
@@ -36,10 +37,12 @@ const Testimonials = () => {
 
           <div class="p-6 bg-gray-100 rounded-lg  md:p-8">
             <p class="leading-loose text-body">
-              “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
-              quibusdam ducimus libero ad tempora doloribus expedita laborum
-              saepe voluptas perferendis delectus assumenda rerum, culpa aperiam
-              dolorum, obcaecati corrupti aspernatur a.”.
+              &quot;My experience with GreenLuxe was simply outstanding. Their
+              agents are not only experts in the field but also caring and
+              supportive. They went above and beyond to help me find my dream
+              home. The level of professionalism and personal attention was
+              remarkable. I&apos;m incredibly grateful for their
+              assistance.&quot;
             </p>
 
             <div class="flex items-center mt-6">

@@ -118,8 +118,9 @@ const InquiryForm = () => {
               </div>
             </div>
 
-            <div>
-              <div class="w-full px-8 py-6 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl  lg:max-w-xl">
+            {/* form */}
+            <div className="w-full">
+              <div class="px-8 py-6 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl">
                 <h1 class="text-xl font-bold text-heading">Contact us</h1>
 
                 <p class="mt-1 text-body text-sm">

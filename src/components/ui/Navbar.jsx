@@ -141,7 +141,7 @@ const Navbar = () => {
                         photoURL ||
                         "https://i.ibb.co/Y3cQrGL/dummy-profile-image.jpg"
                       }
-                      className="w-10 h-10 rounded-full"
+                      className="w-10 h-10 rounded-full border"
                       alt="User Profile"
                       width="100"
                       height="100"

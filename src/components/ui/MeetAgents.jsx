@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const MeetAgents = () => {
   const team = [
     {
@@ -55,11 +57,18 @@ const MeetAgents = () => {
           <ul className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {team.map((item, idx) => (
               <li key={idx}>
-                <div className="mt-4 text-center space-y-1 bg-gray-100 p-6 rounded-lg">
-                  <h4 className="text-lg text-heading font-semibold">
+                <div className="mt-4 flex flex-col items-center space-y-1 shadow p-6 rounded-xl">
+                  <Image
+                    src={"https://i.ibb.co/Y3cQrGL/dummy-profile-image.jpg"}
+                    className="w-24 h-24 rounded-full border"
+                    alt="User Profile"
+                    width="100"
+                    height="100"
+                  />
+                  <h4 className="text-base text-heading font-semibold pt-4">
                     {item.name}
                   </h4>
-                  <p className="text-primary text-sm">{item.email}</p>
+                  <p className="text-secondary text-sm">{item.email}</p>
                   <p className="text-body text-sm">{item.phone}</p>
                 </div>
               </li>

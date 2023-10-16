@@ -1,6 +1,6 @@
 import Loading from "@/pages/loading";
 import { useGetPropertiesQuery } from "@/redux/features/properties/propertyApi";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import PropertyCard from "./PropertyCard";
 
 const FeaturedProperties = () => {
@@ -27,14 +27,6 @@ const FeaturedProperties = () => {
             Your journey in the world of real estate begins here.
           </p>
         </div>
-        <div>
-          <Link
-            href="properties"
-            className="text-sm font-semibold hover:text-primary duration-300 ease-in-out"
-          >
-            See all properties
-          </Link>
-        </div>
       </div>
 
       {/* cards here */}
@@ -42,6 +34,30 @@ const FeaturedProperties = () => {
         {propertyData?.data?.map((property) => (
           <PropertyCard key={property._id} property={property} />
         ))}
+      </div>
+
+      {/* footer button */}
+      <div className="flex justify-end mt-6">
+        <Link
+          href="properties"
+          className="flex items-center gap-1 text-sm font-semibold hover:text-primary duration-300 ease-in-out"
+        >
+          Explore all properties{" "}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="24"
+            viewBox="0 0 32 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M7 12H25" />
+            <path d="M18 5l7 7-7 7" />
+          </svg>
+        </Link>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { Link } from "react-scroll";
+
 const Testimonials = () => {
   return (
     <section class="px-4 md:px-12 lg:px-20 py-16" name="testimonials">
@@ -54,6 +56,30 @@ const Testimonials = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* footer button */}
+        <div className="flex justify-end mt-6">
+          <Link
+            href=""
+            className="flex items-center gap-1 text-sm font-semibold hover:text-primary duration-300 ease-in-out"
+          >
+            Views all reviews{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="24"
+              viewBox="0 0 32 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 12H25" />
+              <path d="M18 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

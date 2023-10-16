@@ -6,12 +6,22 @@ import {
 } from "@/redux/features/properties/propertyApi";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import Loading from "../loading";
 
 const PropertyDetailPage = () => {
   // get property Id
   const router = useRouter();
   const { propertyId } = router.query;
+
+  // Create the form
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   // fetching all data
   const { data: propertyData, error } = useGetPropertiesQuery(undefined);
@@ -55,6 +65,12 @@ const PropertyDetailPage = () => {
   const formattedListingDate = `${date.toLocaleString("default", {
     month: "long",
   })} ${date.getDate()}, ${date.getFullYear()}`;
+
+  //on submit
+  const onSubmit = (data) => {
+    toast.success("Schedule booking successfully");
+    reset();
+  };
 
   return (
     <section className="py-28">
@@ -299,64 +315,116 @@ const PropertyDetailPage = () => {
         </div>
 
         {/* schedule form */}
-        <div class="w-full h-fit px-8 py-10 mx-auto bg-white shadow-lg rounded-xl">
-          <h1 class="text-xl font-bold text-primary text-center">
-            Schedule a Tour
-          </h1>
-          <form class="mt-6">
-            <div class="flex-1">
-              <label class="block mb-2 text-sm text-gray-600 ">Your Name</label>
-              <input
-                type="text"
-                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
+        <div>
+          <div class="w-full px-8 py-6 mx-auto overflow-hidden bg-white shadow-lg rounded-xl  lg:max-w-xl">
+            <h1 class="text-lg font-bold text-heading text-center mb-2">
+              Schedule a Tour
+            </h1>
+            <hr />
+            <form onSubmit={handleSubmit(onSubmit)} class="mt-4">
+              <div class="flex-1">
+                <label class="block mb-2 text-sm text-gray-600 ">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("name", { required: true })}
+                />
+                {errors.name && (
+                  <span className="label-text-alt text-red-500 mt-2">
+                    Full name is required
+                  </span>
+                )}
+              </div>
 
-            <div class="flex-1 mt-6">
-              <label class="block mb-2 text-sm text-gray-600 ">
-                Email address
-              </label>
-              <input
-                type="email"
-                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
+              <div class="flex-1 mt-3">
+                <label class="block mb-2 text-sm text-gray-600 ">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("email", { required: true })}
+                />
+                {errors.email && (
+                  <span className="label-text-alt text-red-500 mt-2">
+                    Email is required
+                  </span>
+                )}
+              </div>
+              <div class="flex-1 mt-3">
+                <label class="block mb-2 text-sm text-gray-600 ">
+                  Phone number
+                </label>
+                <input
+                  type="text"
+                  class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("phone", { required: true })}
+                />
+                {errors.phone && (
+                  <span className="label-text-alt text-red-500 mt-2">
+                    Phone is required
+                  </span>
+                )}
+              </div>
+              <div class="flex-1 mt-3">
+                <label class="block mb-2 text-sm text-gray-600 ">Date</label>
+                <input
+                  type="date"
+                  class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("date", { required: true })}
+                />
+                {errors.date && (
+                  <span className="label-text-alt text-red-500 mt-2">
+                    Date is required
+                  </span>
+                )}
+              </div>
+              <div class="flex-1 mt-3">
+                <label class="block mb-2 text-sm text-gray-600 ">Time</label>
+                <input
+                  type="time"
+                  class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("time", { required: true })}
+                />
+                {errors.time && (
+                  <span className="label-text-alt text-red-500 mt-2">
+                    Date is required
+                  </span>
+                )}
+              </div>
+              <div class="w-full mt-3">
+                <label class="block mb-2 text-sm text-gray-600 ">Message</label>
+                <textarea
+                  rows="2"
+                  class="block w-full h-24 px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  placeholder="Message"
+                  {...register("message", { required: true })}
+                ></textarea>
+                {errors.message && (
+                  <span className="label-text-alt text-red-500 mt-2">
+                    Message is required
+                  </span>
+                )}
+              </div>
 
-            <div class="flex-1 mt-6">
-              <label class="block mb-2 text-sm text-gray-600 ">
-                Phone Number
-              </label>
-              <input
-                type="text"
-                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    reset();
+                  }}
+                  class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-primary capitalize transition-colors duration-300 transform bg-yellow-50 rounded-md hover:bg-yellow-100 focus:outline-none"
+                >
+                  Clear
+                </button>
 
-            <div class="flex-1 mt-6">
-              <label class="block mb-2 text-sm text-gray-600 ">
-                Date and Time
-              </label>
-              <input
-                type="datetime-local"
-                class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              />
-            </div>
-
-            <div class="w-full mt-6">
-              <label class="block mb-2 text-sm text-gray-600 ">Message</label>
-              <textarea
-                class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-                placeholder="Message"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-50"
-            >
-              Submit Tour Request
-            </button>
-          </form>
+                <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-secondary focus:outline-none">
+                  Submit Request
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 

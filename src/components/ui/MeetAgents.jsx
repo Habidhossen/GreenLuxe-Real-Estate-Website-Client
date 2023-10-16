@@ -15,11 +15,26 @@ const MeetAgents = () => {
       email: "brown@example.com",
       phone: "0123456789",
     },
+    {
+      name: "Micheal John",
+      email: "micheal@example.com",
+      phone: "0123456789",
+    },
+    {
+      name: "John Kabir",
+      email: "kabir@exaple.com",
+      phone: "0123456789",
+    },
+    {
+      name: "Eris Luis",
+      email: "luis@example.com",
+      phone: "0123456789",
+    },
   ];
 
   return (
-    <section className="px-4 md:px-12 lg:px-20 py-14">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+    <section className="px-4 md:px-12 lg:px-20 py-14" name="agents">
+      <div className="mx-auto px-4 md:px-8">
         <div className="max-w-xl mx-auto sm:text-center">
           <h1 class="text-2xl font-semibold text-center  capitalize lg:text-3xl ">
             Meet The <span class="text-primary ">Agents</span>

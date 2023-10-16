@@ -65,10 +65,10 @@ const DashboardPage = ({ children }) => {
     <div>
       <div className="drawer lg:drawer-open">
         <input id="dashboardDrawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col p-6 md:p-8 lg:p-10">
           {/* Page content here */}
           {/* dashboard nav */}
-          <nav className="md:hidden lg:hidden py-3 px-8 fixed top-0 left-0 right-0 shadow-sm flex items-center justify-between">
+          <nav className="bg-white md:hidden lg:hidden py-3 px-6 fixed top-0 left-0 right-0 shadow-sm flex items-center justify-between">
             <h1 className="text-lg font-semibold">Dashboard</h1>
             <label
               htmlFor="dashboardDrawer"
@@ -86,7 +86,30 @@ const DashboardPage = ({ children }) => {
           </nav>
 
           {/* main content */}
-          <main className="pt-32 md:pt-0 lg:pt-0">{children}</main>
+          <main className="pt-16 md:pt-0 lg:pt-0">
+            {/* Breadcrumb */}
+            <nav className="text-sm mb-4">
+              <ol className="list-reset flex text-grey">
+                <li className="mr-2">
+                  <Link
+                    href="/"
+                    className="text-heading font-semibold hover:underline"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="mr-2">
+                  <span>&gt;</span>
+                </li>
+                <li className="text-transparent bg-gradient-to-r from-[#ff7d1e] to-primary bg-clip-text font-semibold">
+                  Dashboard
+                </li>
+              </ol>
+            </nav>
+            <hr />
+            {/* children are here */}
+            {children}
+          </main>
         </div>
 
         <div className="drawer-side">

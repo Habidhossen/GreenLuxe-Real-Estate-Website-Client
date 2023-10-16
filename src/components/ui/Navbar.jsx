@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link as ScrollLink } from "react-scroll";
 
 const Navbar = () => {
   // declare state for handling navigation bar
@@ -78,15 +79,51 @@ const Navbar = () => {
         >
           <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 text-sm text-heading font-semibold">
             <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
+              <Link href="/" className="block">
+                Home
+              </Link>
+            </li>
+
+            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
               <Link href="/properties" className="block">
                 Listing
               </Link>
             </li>
-            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
-              <Link href="" className="block">
-                About Us
-              </Link>
+
+            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out cursor-pointer">
+              <ScrollLink
+                to="testimonials"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-10}
+              >
+                Testimonials
+              </ScrollLink>
             </li>
+            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out cursor-pointer">
+              <ScrollLink
+                to="agents"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-50}
+              >
+                Agents
+              </ScrollLink>
+            </li>
+            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out cursor-pointer">
+              <ScrollLink
+                to="about-us"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-50}
+              >
+                About Us
+              </ScrollLink>
+            </li>
+
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             {user?.email && (
               <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
@@ -110,10 +147,10 @@ const Navbar = () => {
                       height="100"
                     />
                     <div>
-                      <span className="block text-gray-700 text-sm font-medium">
+                      <span className="block text-heading text-xs font-semibold">
                         {currentUser?.displayName}
                       </span>
-                      <span className="block text-gray-700 text-xs">
+                      <span className="block text-body text-xs">
                         {currentUser?.email}
                       </span>
                     </div>

@@ -10,7 +10,7 @@ const InquiryForm = () => {
     formState: { errors },
   } = useForm();
 
-  // Define the onSubmit function with the correct type
+  // on submit
   const onSubmit = (data) => {
     toast.success("Feedback sent successfully");
     reset();

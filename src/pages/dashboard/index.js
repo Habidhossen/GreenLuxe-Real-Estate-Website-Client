@@ -11,7 +11,7 @@ const DashboardPage = ({ children }) => {
   const navigation = [
     {
       href: "/dashboard",
-      name: "Dashboard",
+      name: "Overview",
     },
     {
       href: "/dashboard/profile",

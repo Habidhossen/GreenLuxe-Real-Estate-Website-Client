@@ -39,7 +39,6 @@ const LoginPage = () => {
   useEffect(() => {
     if (user?.email) {
       router.push("/dashboard");
-      // navigate("/");
     }
   }, [user?.email, router]);
 

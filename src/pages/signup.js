@@ -1,12 +1,15 @@
 import MainLayout from "@/layouts/MainLayout";
 import { usePostUserMutation } from "@/redux/features/auth/userApi";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../redux/features/auth/userSlice";
 
 const SignupPage = () => {
+  // useRouter for navigating
+  const router = useRouter();
   const [postUser, { isError }] = usePostUserMutation();
 
   // Redux dispatch and selector
@@ -56,9 +59,9 @@ const SignupPage = () => {
   // if user successfully login
   useEffect(() => {
     if (user?.email) {
-      // navigate("/");
+      router.push("/dashboard");
     }
-  }, [user?.email]);
+  }, [user?.email, router]);
 
   return (
     <section className="w-full h-screen flex flex-col items-center justify-center px-4">

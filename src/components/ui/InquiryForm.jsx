@@ -1,4 +1,21 @@
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+
 const InquiryForm = () => {
+  // Create the form
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  // Define the onSubmit function with the correct type
+  const onSubmit = (data) => {
+    toast.success("Feedback sent successfully");
+    reset();
+  };
+
   return (
     <section
       class="min-h-screen bg-cover "
@@ -101,48 +118,112 @@ const InquiryForm = () => {
               </div>
             </div>
 
-            <div class="">
-              <div class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl  lg:max-w-xl">
+            <div>
+              <div class="w-full px-8 py-6 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl  lg:max-w-xl">
                 <h1 class="text-xl font-bold text-heading">Contact us</h1>
 
                 <p class="mt-1 text-body text-sm">
                   Ask us everything and we would love to hear from you
                 </p>
 
-                <form class="mt-6">
+                <form onSubmit={handleSubmit(onSubmit)} class="mt-4">
                   <div class="flex-1">
                     <label class="block mb-2 text-sm text-gray-600 ">
                       Full Name
                     </label>
                     <input
                       type="text"
-                      class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                      class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                      {...register("name", { required: true })}
                     />
+                    {errors.name && (
+                      <span className="label-text-alt text-red-500 mt-2">
+                        Full name is required
+                      </span>
+                    )}
                   </div>
 
-                  <div class="flex-1 mt-6">
+                  <div class="flex-1 mt-3">
                     <label class="block mb-2 text-sm text-gray-600 ">
                       Email address
                     </label>
                     <input
                       type="email"
-                      class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                      class="block w-full px-5 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                      {...register("email", { required: true })}
                     />
+                    {errors.email && (
+                      <span className="label-text-alt text-red-500 mt-2">
+                        Email is required
+                      </span>
+                    )}
                   </div>
 
-                  <div class="w-full mt-6">
+                  <div class="flex-1 mt-3">
+                    <label class="block mb-2 text-sm text-gray-600 ">
+                      Rating
+                    </label>
+                    <div className="rating">
+                      <input
+                        type="radio"
+                        name="rating-2"
+                        className="mask mask-star-2 bg-orange-400"
+                      />
+                      <input
+                        type="radio"
+                        name="rating-2"
+                        className="mask mask-star-2 bg-orange-400"
+                        checked
+                      />
+                      <input
+                        type="radio"
+                        name="rating-2"
+                        className="mask mask-star-2 bg-orange-400"
+                      />
+                      <input
+                        type="radio"
+                        name="rating-2"
+                        className="mask mask-star-2 bg-orange-400"
+                      />
+                      <input
+                        type="radio"
+                        name="rating-2"
+                        className="mask mask-star-2 bg-orange-400"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="w-full mt-3">
                     <label class="block mb-2 text-sm text-gray-600 ">
                       Message
                     </label>
                     <textarea
-                      class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                      rows="2"
+                      class="block w-full h-24 px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                       placeholder="Message"
+                      {...register("message", { required: true })}
                     ></textarea>
+                    {errors.message && (
+                      <span className="label-text-alt text-red-500 mt-2">
+                        Message is required
+                      </span>
+                    )}
                   </div>
 
-                  <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
-                    Send Request
-                  </button>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => {
+                        reset();
+                      }}
+                      class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-primary capitalize transition-colors duration-300 transform bg-yellow-50 rounded-md hover:bg-yellow-100 focus:outline-none"
+                    >
+                      Reset
+                    </button>
+
+                    <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-secondary focus:outline-none">
+                      Send Request
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>

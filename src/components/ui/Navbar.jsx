@@ -90,8 +90,8 @@ const Navbar = () => {
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             {user?.email && (
               <li className="text-gray-700 hover:text-primary">
-                <Link href="/profile" className="block">
-                  My Profile
+                <Link href="/dashboard/profile" className="block">
+                  Dashboard
                 </Link>
               </li>
             )}
@@ -121,7 +121,7 @@ const Navbar = () => {
                       onClick={handleSignOut}
                       className="px-2.5 py-2.5 text-red-600 duration-150 bg-red-50 rounded-lg hover:bg-red-100 active:bg-red-200"
                     >
-                      Sign out
+                      Logout
                     </button>
                   </div>
                 </div>

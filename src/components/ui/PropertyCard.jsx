@@ -30,7 +30,7 @@ const PropertyCard = ({ property }) => {
       <Image src={images[0]} alt="" width="500" height="500" />
       <div className="px-3 py-4 space-y-2">
         <Link href={`/properties/${_id}`}>
-          <h1 className="text-heading text-md font-bold hover:text-primary duration-300 ease-in-out">
+          <h1 className="text-heading text-md font-bold hover:text-primary hover:underline duration-300 ease-in-out">
             {title}
           </h1>
         </Link>

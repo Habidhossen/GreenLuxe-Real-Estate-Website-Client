@@ -17,6 +17,10 @@ const DashboardPage = ({ children }) => {
       href: "/dashboard/profile",
       name: "My Profile",
     },
+    {
+      href: "/dashboard/booking",
+      name: "Bookings",
+    },
   ];
 
   const router = useRouter();
@@ -63,15 +67,28 @@ const DashboardPage = ({ children }) => {
         <input id="dashboardDrawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
-          <main>{children}</main>
+          {/* dashboard nav */}
+          <nav className="md:hidden lg:hidden py-3 px-8 fixed top-0 left-0 right-0 shadow-sm flex items-center justify-between">
+            <h1 className="text-lg font-semibold">Dashboard</h1>
+            <label
+              htmlFor="dashboardDrawer"
+              className="btn btn-[#FFA920] drawer-button lg:hidden"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              </svg>
+            </label>
+          </nav>
 
-          <label
-            htmlFor="dashboardDrawer"
-            className="btn btn-primary drawer-button lg:hidden"
-          >
-            Open drawer
-          </label>
+          {/* main content */}
+          <main className="pt-32 md:pt-0 lg:pt-0">{children}</main>
         </div>
+
         <div className="drawer-side">
           <label
             htmlFor="dashboardDrawer"
@@ -85,9 +102,11 @@ const DashboardPage = ({ children }) => {
                 <div class="flex flex-col h-full">
                   <div className="h-20 flex items-center px-6">
                     {" "}
-                    <h1 className="text-xl font-bold text-heading">
-                      <span className="text-primary">Green</span>Luxe.
-                    </h1>
+                    <Link href="/">
+                      <h1 className="text-xl font-bold text-heading">
+                        <span className="text-primary">Green</span>Luxe.
+                      </h1>
+                    </Link>
                   </div>
 
                   <div className="flex-1 flex flex-col h-full overflow-auto border-t pt-2">

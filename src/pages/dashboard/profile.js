@@ -36,9 +36,9 @@ const ProfilePage = () => {
         </h2>
         <hr />
 
-        <form>
+        <div>
           <div className="avatar mt-4">
-            <div className="w-24 rounded-full">
+            <div className="w-24 rounded-full border">
               <Image
                 src={
                   currentUser?.photoURL ||
@@ -196,7 +196,7 @@ const ProfilePage = () => {
               </button>
             </div>
           </form>
-        </form>
+        </div>
       </section>
     </DashboardPage>
   );

@@ -4,7 +4,7 @@ import { getAuth, signOut } from "firebase/auth";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const DashboardPage = ({ children }) => {
   // navigation items
@@ -23,6 +23,11 @@ const DashboardPage = ({ children }) => {
     },
   ];
 
+  const { user } = useSelector((state) => state.user);
+  // get current User from firebase
+  const currentUser = getAuth().currentUser;
+  const photoURL = currentUser?.photoURL;
+
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -34,10 +39,6 @@ const DashboardPage = ({ children }) => {
       router.push("/");
     });
   };
-
-  // get current User from firebase
-  const currentUser = getAuth().currentUser;
-  const photoURL = currentUser?.photoURL;
 
   const navFooter = [
     {
@@ -106,7 +107,6 @@ const DashboardPage = ({ children }) => {
                 </li>
               </ol>
             </nav>
-            <hr />
             {/* children are here */}
             {children}
           </main>

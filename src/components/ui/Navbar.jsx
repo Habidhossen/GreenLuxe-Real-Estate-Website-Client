@@ -26,7 +26,7 @@ const Navbar = () => {
   const photoURL = currentUser?.photoURL;
 
   return (
-    <nav className="bg-white backdrop-blur-md bg-opacity-75 fixed top-0 left-0 right-0 z-10 text-sm">
+    <nav className="bg-white backdrop-blur-md bg-opacity-75 fixed top-0 left-0 right-0 z-10 text-sm shadow-sm">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
@@ -77,19 +77,19 @@ const Navbar = () => {
           }`}
         >
           <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 text-sm text-heading font-semibold">
-            <li className="text-gray-700 hover:text-primary">
+            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
               <Link href="/properties" className="block">
                 Listing
               </Link>
             </li>
-            <li className="text-gray-700 hover:text-primary">
+            <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
               <Link href="" className="block">
                 About Us
               </Link>
             </li>
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             {user?.email && (
-              <li className="text-gray-700 hover:text-primary">
+              <li className="text-gray-700 hover:text-primary duration-300 ease-in-out">
                 <Link href="/dashboard/profile" className="block">
                   Dashboard
                 </Link>

@@ -5,6 +5,7 @@ import InquiryForm from "@/components/ui/InquiryForm";
 import MeetAgents from "@/components/ui/MeetAgents";
 import PropertiesByCities from "@/components/ui/PropertiesByCities";
 import Testimonials from "@/components/ui/Testimonials";
+import ScrollToTopButton from "@/components/utils/ScrollToTopButton";
 import { auth } from "@/config/firebase.init";
 import MainLayout from "@/layouts/MainLayout";
 import { onAuthStateChanged } from "firebase/auth";
@@ -51,6 +52,7 @@ export default function HomePage() {
         <MeetAgents />
         <InquiryForm />
       </main>
+      <ScrollToTopButton />
     </>
   );
 }

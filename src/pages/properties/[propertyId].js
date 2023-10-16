@@ -13,9 +13,10 @@ const PropertyDetailPage = () => {
   const router = useRouter();
   const { propertyId } = router.query;
 
+  // fetching all data
   const { data: propertyData, error } = useGetPropertiesQuery(undefined);
 
-  // fetching data by RTK Query
+  // fetching Single Data
   const { data, isLoading, isError } = useGetOnePropertyQuery(propertyId);
 
   // is loading
@@ -60,8 +61,8 @@ const PropertyDetailPage = () => {
       {/* property heading */}
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-4 md:px-12 lg:px-20 mb-8">
         <div>
-          <span className="text-sm bg-secondary text-white rounded-md px-2 py-1">
-            {status}
+          <span className="badge text-xs font-semibold bg-emerald-100 text-emerald-900">
+            {status.toUpperCase()}
           </span>
           <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold mb-1">
             {title}
@@ -72,6 +73,17 @@ const PropertyDetailPage = () => {
             <h2 className="text-sm">{formattedListingDate}</h2>
             <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s"></span>
             <h2 className="text-sm">{views} views</h2>
+          </div>
+
+          <div className="my-3">
+            {data?.data?.tags?.map((tag, index) => (
+              <span
+                key={index}
+                className="text-xs bg-amber-100 px-2 py-1 rounded-full mr-1"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
         <div className="lg:text-end">
@@ -218,10 +230,76 @@ const PropertyDetailPage = () => {
               </div>
             </div>
           </div>
+
+          {/* reviews */}
+
+          <div className="p-6 shadow-lg rounded-lg mb-8">
+            <div>
+              <h2 className="text-md font-semibold mb-4 mt-6">
+                Reviews ({reviews.length})
+              </h2>
+              {data?.data?.reviews?.length === 0 ? (
+                <p>No reviews available</p>
+              ) : (
+                <div>
+                  {/* review card */}
+                  {data?.data?.reviews?.map((review, index, reviewsArray) => (
+                    <div key={review._id}>
+                      <div className="flex items-center gap-x-3">
+                        <Image
+                          width={100}
+                          height={100}
+                          alt="review cover"
+                          src="https://i.ibb.co/Y3cQrGL/dummy-profile-image.jpg"
+                          className="w-10 h-10 rounded-full"
+                        />
+                        <div>
+                          <span className="text-xs font-semibold">
+                            {review?.user?.name}
+                          </span>
+                          <div className="flex items-center gap-3 mt-1 text-xs">
+                            {/* render star based on ratings */}
+                            <span className="flex items-center">
+                              {Array.from({ length: 5 }, (_, index) => (
+                                <svg
+                                  key={index}
+                                  fill={
+                                    index < review?.rating
+                                      ? "currentColor"
+                                      : "none"
+                                  }
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  className="w-4 h-4 text-[#ff7d1e]"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                              ))}
+                            </span>
+                            {review?.rating} out of 5
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="mt-2 text-xs">{review?.comment}</p>
+                      </div>
+                      {/* Conditionally render the horizontal line */}
+                      {index !== reviewsArray.length - 1 && (
+                        <hr className="border-b-1 border-gray-200 my-3" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* schedule form */}
-        <div class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-lg rounded-xl  lg:max-w-xl">
+        <div class="w-full h-fit px-8 py-10 mx-auto bg-white shadow-lg rounded-xl">
           <h1 class="text-xl font-bold text-primary text-center">
             Schedule a Tour
           </h1>

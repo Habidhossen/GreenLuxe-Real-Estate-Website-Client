@@ -83,8 +83,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="text-gray-700 hover:text-primary">
-              <Link href="/contact" className="block">
-                Contact Us
+              <Link href="" className="block">
+                About Us
               </Link>
             </li>
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>

@@ -78,7 +78,7 @@ const SignupPage = () => {
             <label className="font-medium">Name</label>
             <input
               type="text"
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-green-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
               {...register("name", { required: true })}
             />
             {errors.name && (
@@ -91,7 +91,7 @@ const SignupPage = () => {
             <label className="font-medium">Email</label>
             <input
               type="email"
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-green-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
               {...register("email", { required: true })}
             />
             {errors.email && (
@@ -104,7 +104,7 @@ const SignupPage = () => {
             <label className="font-medium">Password</label>
             <input
               type="password"
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-green-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
               {...register("password", { required: true })}
             />
             {errors.password && (
@@ -119,7 +119,7 @@ const SignupPage = () => {
             )}
           </div>
           <div className="pt-4">
-            <button className="w-full px-4 py-2 text-white font-medium bg-green-600 hover:bg-green-500 active:bg-green-600 rounded-lg duration-150">
+            <button className="w-full px-4 py-2 text-white font-medium bg-secondary hover:bg-primary active:bg-primary rounded-lg duration-150">
               {isLoading ? "Loading..." : "Sign Up"}
             </button>
           </div>
@@ -129,7 +129,7 @@ const SignupPage = () => {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="font-medium text-green-600 hover:text-green-500"
+            className="font-medium text-primary hover:text-primary"
           >
             Login
           </Link>

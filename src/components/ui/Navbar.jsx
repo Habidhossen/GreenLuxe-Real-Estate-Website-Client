@@ -176,7 +176,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       href="/signup"
-                      className="block py-3 px-4 font-medium text-center text-white bg-[#16a571] hover:bg-green-600 active:bg-bg-green-700 active:shadow-none rounded-lg shadow md:inline"
+                      className="block py-3 px-4 font-medium text-center text-white bg-primary hover:bg-secondary duration-300 ease-in-out rounded-lg shadow md:inline"
                     >
                       Register
                     </Link>

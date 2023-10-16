@@ -26,7 +26,7 @@ const Navbar = () => {
   const photoURL = currentUser?.photoURL;
 
   return (
-    <nav className="bg-white backdrop-blur-md bg-opacity-60 fixed top-0 left-0 right-0 z-10 text-sm">
+    <nav className="bg-white backdrop-blur-md bg-opacity-75 fixed top-0 left-0 right-0 z-10 text-sm">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
@@ -140,7 +140,7 @@ const Navbar = () => {
                       href="/signup"
                       className="block py-3 px-4 font-medium text-center text-white bg-[#16a571] hover:bg-green-600 active:bg-bg-green-700 active:shadow-none rounded-lg shadow md:inline"
                     >
-                      Sign Up
+                      Register
                     </Link>
                   </li>
                 </>

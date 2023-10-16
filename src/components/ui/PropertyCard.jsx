@@ -45,7 +45,7 @@ const PropertyCard = ({ property }) => {
         </div>
         <hr />
         <div className="flex items-center justify-between pt-2">
-          <div className="badge text-xs bg-emerald-100 text-emerald-900">
+          <div className="badge text-xs font-semibold bg-emerald-100 text-emerald-900">
             {status.toUpperCase()}
           </div>
           <div>

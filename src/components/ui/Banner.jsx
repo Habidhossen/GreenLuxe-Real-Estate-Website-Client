@@ -19,7 +19,7 @@ const Banner = () => {
           <input
             type="email"
             placeholder="Search for properties..."
-            class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0"
+            class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 rounded-md"
           />
 
           <button

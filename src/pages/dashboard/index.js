@@ -162,16 +162,102 @@ const DashboardPage = ({ children }) => {
 
                     <div className="flex-1 flex flex-col h-full overflow-auto border-t pt-2">
                       <ul className="px-4 text-sm font-medium flex-1">
-                        {navigation.map((item, idx) => (
-                          <li key={idx}>
-                            <Link
-                              href={item.href}
-                              className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
+                        <li>
+                          <Link
+                            href="/dashboard"
+                            className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                          >
+                            Overview
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/dashboard/profile"
+                            className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                          >
+                            My Profile
+                          </Link>
+                        </li>
+
+                        {admin ? (
+                          <>
+                            <li>
+                              <Link
+                                href="/dashboard/user-management"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                User Management
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/content-management"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Content/Service Management
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/booking-management"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Booking Management
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/notification-center"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Notification Center
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/common-action"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Common Action
+                              </Link>
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              <Link
+                                href="/dashboard/booking-history"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Booking History
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/booking-summary"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Booking Summary
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/notification-center"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Notification Center
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/common-action"
+                                className="flex items-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-yellow-50 active:bg-yellow-100 duration-150"
+                              >
+                                Quick Action
+                              </Link>
+                            </li>
+                          </>
+                        )}
                       </ul>
                       <div>
                         <ul className="px-4 pb-4 text-sm font-medium">

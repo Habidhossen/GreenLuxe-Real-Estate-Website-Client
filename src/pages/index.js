@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "../redux/features/auth/userSlice";
 
 export default function HomePage() {
+  /* Handle Firebase State */
   // dispatch
   const dispatch = useDispatch();
   // selector

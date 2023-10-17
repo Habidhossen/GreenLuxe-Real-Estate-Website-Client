@@ -128,7 +128,10 @@ const SignupPage = () => {
                 checked={isCheckboxChecked}
                 onChange={() => setIsCheckboxChecked(!isCheckboxChecked)}
               />{" "}
-              I agree to the terms and conditions
+              I agree to the{" "}
+              <span className="text-blue-700 hover:underline">
+                Terms and Conditions
+              </span>
             </label>
           </div>
 
@@ -137,9 +140,9 @@ const SignupPage = () => {
               {isLoading ? "Loading..." : "Sign Up"}
             </button> */}
             <button
-              className={`w-full px-4 py-2 text-white font-medium bg-secondary ${
+              className={`w-full px-4 py-2 text-white font-medium ${
                 isCheckboxChecked
-                  ? "hover:bg-primary active:bg-primary"
+                  ? "hover:bg-primary bg-secondary active:bg-primary"
                   : "bg-gray-300"
               } rounded-lg duration-150`}
               disabled={!isCheckboxChecked}
@@ -148,7 +151,6 @@ const SignupPage = () => {
             </button>
           </div>
         </form>
-
         <p className="text-center">
           Already have an account?{" "}
           <Link

@@ -2,7 +2,7 @@ import MainLayout from "@/layouts/MainLayout";
 import { usePostUserMutation } from "@/redux/features/auth/userApi";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../redux/features/auth/userSlice";
@@ -11,6 +11,8 @@ const SignupPage = () => {
   // useRouter for navigating
   const router = useRouter();
   const [postUser, { isError }] = usePostUserMutation();
+
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
   // Redux dispatch and selector
   const {
@@ -118,8 +120,30 @@ const SignupPage = () => {
               </span>
             )}
           </div>
+
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={isCheckboxChecked}
+                onChange={() => setIsCheckboxChecked(!isCheckboxChecked)}
+              />{" "}
+              I agree to the terms and conditions
+            </label>
+          </div>
+
           <div className="pt-4">
-            <button className="w-full px-4 py-2 text-white font-medium bg-secondary hover:bg-primary active:bg-primary rounded-lg duration-150">
+            {/* <button className="w-full px-4 py-2 text-white font-medium bg-secondary hover:bg-primary active:bg-primary rounded-lg duration-150">
+              {isLoading ? "Loading..." : "Sign Up"}
+            </button> */}
+            <button
+              className={`w-full px-4 py-2 text-white font-medium bg-secondary ${
+                isCheckboxChecked
+                  ? "hover:bg-primary active:bg-primary"
+                  : "bg-gray-300"
+              } rounded-lg duration-150`}
+              disabled={!isCheckboxChecked}
+            >
               {isLoading ? "Loading..." : "Sign Up"}
             </button>
           </div>

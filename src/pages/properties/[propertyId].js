@@ -420,7 +420,7 @@ const PropertyDetailPage = () => {
                 </button>
 
                 <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-secondary focus:outline-none">
-                  Submit Request
+                  Send
                 </button>
               </div>
             </form>

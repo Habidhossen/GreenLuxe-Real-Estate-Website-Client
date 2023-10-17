@@ -1,6 +1,7 @@
 import { getAuth } from "firebase/auth";
 import Image from "next/image";
 import { Controller, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import DashboardPage from ".";
 
 const ProfilePage = () => {
@@ -21,6 +22,9 @@ const ProfilePage = () => {
   };
 
   const handleEditClick = () => {
+    if (isEditing) {
+      toast.success("Profile updated successfully");
+    }
     setValue("isEditing", !isEditing);
   };
 

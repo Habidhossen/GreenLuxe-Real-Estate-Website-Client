@@ -1,5 +1,6 @@
 import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 import { auth } from "@/config/firebase.init";
+import useAdmin from "@/hooks/useAdmin";
 import { setLoading, setUser } from "@/redux/features/auth/userSlice";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import Image from "next/image";
@@ -29,6 +30,9 @@ const DashboardPage = ({ children }) => {
       }
     });
   }, [dispatch]);
+
+  // is admin or not hook
+  const [admin] = useAdmin(user); //from admin hook
 
   // navigation items
   const navigation = [

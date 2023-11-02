@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <section className="px-4 md:px-12 lg:px-20 mt-16 mb-10 bg-yellow-50">
+    <section className="px-4 md:px-12 lg:px-20 mt-16 mb-10 ">
       <div class="py-16 mx-auto text-center">
-        <div class="mx-auto">
-          <h1 class="font-roboto text-4xl font-bold text-heading lg:text-6xl">
+        <div class="mx-auto py-4">
+          <h1 class="font-roboto text-4xl font-bold text-heading lg:text-6xl capitalize">
             We will find a <span className="text-secondary">perfect</span> home{" "}
             <br /> for you.
           </h1>
@@ -15,7 +15,7 @@ const Banner = () => {
           </p>
         </div>
 
-        <form class="flex flex-col md:flex-row">
+        {/* <form class="flex flex-col md:flex-row">
           <input
             type="email"
             placeholder="Search for properties..."
@@ -28,7 +28,7 @@ const Banner = () => {
           >
             Search
           </button>
-        </form>
+        </form> */}
 
         <div class="flex justify-center mt-10">
           <Image

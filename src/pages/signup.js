@@ -66,9 +66,9 @@ const SignupPage = () => {
   }, [user?.email, router]);
 
   return (
-    <section className="w-full h-screen flex flex-col items-center justify-center px-4">
-      <div className="max-w-sm w-full text-gray-600 space-y-5">
-        <div className="text-center pb-8">
+    <section className="w-full flex flex-col items-center justify-center px-4">
+      <div className="max-w-sm w-full text-gray-600 space-y-5 p-6 rounded-lg shadow-lg mt-28 mb-12">
+        <div className="text-center pb-6">
           <div className="mt-5">
             <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
               Create your account
@@ -136,9 +136,6 @@ const SignupPage = () => {
           </div>
 
           <div className="pt-4">
-            {/* <button className="w-full px-4 py-2 text-white font-medium bg-secondary hover:bg-primary active:bg-primary rounded-lg duration-150">
-              {isLoading ? "Loading..." : "Sign Up"}
-            </button> */}
             <button
               className={`w-full px-4 py-2 text-white font-medium ${
                 isCheckboxChecked

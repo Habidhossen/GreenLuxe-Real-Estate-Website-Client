@@ -44,11 +44,11 @@ const LoginPage = () => {
 
   return (
     <section className="w-full h-screen flex flex-col items-center justify-center px-4">
-      <div className="max-w-sm w-full text-gray-600 space-y-5">
-        <div className="text-center pb-8">
+      <div className="max-w-sm w-full text-gray-600 space-y-5 p-6 rounded-lg shadow-lg mt-16">
+        <div className="text-center pb-6">
           <div className="mt-5">
             <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
-              Log in to your account
+              Please Login
             </h3>
           </div>
         </div>
